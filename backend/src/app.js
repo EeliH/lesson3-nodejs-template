@@ -45,7 +45,6 @@ const listRoomChats = async (ctx) => {
 
 const createChat = async (ctx) => {
   const params = ctx.request.body;
-  console.log(ctx.request.body);
   const chat = await database.Chat.create({message: params.message, room: ctx.params.room, nickname: params.nickname});
 
   ctx.body = await chat.toJSON();
