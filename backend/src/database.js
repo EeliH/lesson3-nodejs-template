@@ -13,11 +13,16 @@ const sequelize = new Sequelize({
 const Chat = sequelize.define('chats', {
   message: {
     type: Sequelize.TEXT,
-    notNull: true,
-    notEmpty: true,
+    allowNull: false
   },
-  room: Sequelize.TEXT,
-  nickname: Sequelize.TEXT
+  room: {
+    type: Sequelize.TEXT,
+    allowNull: false
+  },
+  nickname: {
+    type: Sequelize.TEXT,
+    allowNull: false
+  },
 }, {
   timestamps: true,
   instanceMethods: {
